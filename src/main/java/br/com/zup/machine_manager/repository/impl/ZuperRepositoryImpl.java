@@ -1,8 +1,8 @@
 package br.com.zup.machine_manager.repository.impl;
 
+import br.com.zup.machine_manager.infra.loaders.XLSXLoader;
 import br.com.zup.machine_manager.repository.ZuperRepository;
 import br.com.zup.machine_manager.repository.models.Zuper;
-import br.com.zup.machine_manager.repository.util.loader.XlsxObjectLoader;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class ZuperRepositoryImpl implements ZuperRepository {
     private List<Zuper> zupers;
 
     @Autowired
-    private XlsxObjectLoader xlsxObjectLoader;
+    private XLSXLoader xlsxLoader;
 
     @Override
     public Optional<Zuper> getZupByID(int id) {
@@ -33,7 +33,7 @@ public class ZuperRepositoryImpl implements ZuperRepository {
     @PostConstruct
     private void loadZupers(){
         try{
-          zupers = xlsxObjectLoader.objectsLoad(Zuper.class);
+          zupers = xlsxLoader.objectsLoad(Zuper.class);
         }catch (Exception e){
             log.error(e.getMessage());
         }

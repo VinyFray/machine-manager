@@ -1,5 +1,6 @@
-package br.com.zup.machine_manager.repository.util.loader;
+package br.com.zup.machine_manager.infra.loaders.impl;
 
+import br.com.zup.machine_manager.infra.loaders.XLSXObjectsLoader;
 import br.com.zup.machine_manager.repository.models.Zuper;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component("Zuper")
-public class ZupperXLSXLoader implements XLSXLoader{
+public class ZupperXLSXObjectsLoader implements XLSXObjectsLoader {
     @Value("${file.zuper.path}")
     private String filePath;
 
-    private static final Logger log = LoggerFactory.getLogger(ZupperXLSXLoader.class);
+    private static final Logger log = LoggerFactory.getLogger(ZupperXLSXObjectsLoader.class);
 
     @Override
     public List<Zuper> loadObjects() {
