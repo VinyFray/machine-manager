@@ -1,3 +1,9 @@
 spring:
   application:
     name: machine-manager
+
+file:
+  zuper:
+    path: ".dev/zuper_registers.xlsx"
+  machine:
+    path: ".dev/machine_registers.xlsx"
