@@ -92,3 +92,21 @@ json de resposta
 ]
 ````
 
+### Tarefas
+
+1. Atualizar a documentação com informações do CRUD dos zupers
+2. Implementar validações para o cadastro de machines e zupers
+   3. zuper: Nome é obrigatório e não pode ser menor de 5 letras e deve contar nome e sobrenome
+   4. machine: quando inUser for true zuperId deve ser obrigatório
+   5. machine: Brand é campo obrigatório
+   6. zuper: address e postalcode são campos obrigatório e postal code deve ter validação de CPF
+7. Ainda não é possível desvincular um zuper de um computador, deve ser implementada essa funcionalidade (tarefa mais dificil, envolve o repository)
+8. Toda mensagem de validação deve ser enviada ao usuario em formado JSON usando o status code de 422
+
+
+## Info que pode ajudar.
+
+1. se um erro envolvendo um dos arquivos de leitura xlsx acontecer uma possível solucação é usar o checkout do git para restaurar o arquivo
+````gitexclude
+git checkout nome_do_arquivo.xlsx
+````
