@@ -11,4 +11,6 @@ public interface ZuperRepository {
 
     public List<Zuper> getAllZupers();
 
+    public Zuper save(Zuper object);
+
 }

@@ -1,6 +1,7 @@
 package br.com.zup.machine_manager.repository.impl;
 
 import br.com.zup.machine_manager.infra.loaders.XLSXLoader;
+import br.com.zup.machine_manager.infra.manipulators.ZuperXLSXManipulator;
 import br.com.zup.machine_manager.repository.ZuperRepository;
 import br.com.zup.machine_manager.repository.models.Zuper;
 import jakarta.annotation.PostConstruct;
@@ -19,6 +20,8 @@ public class ZuperRepositoryImpl implements ZuperRepository {
 
     @Autowired
     private XLSXLoader xlsxLoader;
+    @Autowired
+    private ZuperXLSXManipulator zuperXLSXManipulator;
 
     @Override
     public Optional<Zuper> getZupByID(int id) {
@@ -28,6 +31,13 @@ public class ZuperRepositoryImpl implements ZuperRepository {
     @Override
     public List<Zuper> getAllZupers() {
         return zupers;
+    }
+
+    @Override
+    public Zuper save(Zuper object) {
+        Zuper zuper = zuperXLSXManipulator.saveObject(object);
+        zupers.add(zuper);
+        return zuper;
     }
 
     @PostConstruct
