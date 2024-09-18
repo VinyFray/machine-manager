@@ -12,8 +12,12 @@ import java.util.Map;
 @Component
 public class XLSXLoaderImpl implements XLSXLoader {
 
-    @Autowired
     private Map<String, XLSXObjectsLoader> xlsxLoaderMap;
+
+    @Autowired
+    public XLSXLoaderImpl(Map<String, XLSXObjectsLoader> xlsxLoaderMap) {
+        this.xlsxLoaderMap = xlsxLoaderMap;
+    }
 
     @Override
     public <T> List<T> objectsLoad(Class<T> className) {
