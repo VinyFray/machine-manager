@@ -10,4 +10,6 @@ public interface MachineRepository {
     public Optional<Machine> getMachineById(String id);
 
     public List<Machine> getAllMachines();
+
+    public Machine save(Machine machine);
 }
