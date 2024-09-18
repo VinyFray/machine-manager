@@ -9,3 +9,6 @@ file:
     path: ".dev/zuper_registers.xlsx"
   machine:
     path: ".dev/machine_registers.xlsx"
+
+server:
+  port: 8080
